@@ -9,8 +9,6 @@ import {
   WiHot,
   WiDayCloudy,
   WiDaySunny,
-  WiDirectionUp,
-  WiDirectionDown,
 } from "react-icons/wi";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,12 +30,13 @@ export default function Home({ initialData }) {
   const [data, setData] = useState(initialData);
   const [showText, setShowText] = useState(false);
 
+  //useEffect if city dependency changed
   useEffect(() => {
     loadWeather(city);
   }, [city]);
 
+  //handling buttons if clicked
   const handleCityClick = (e) => {
-    console.log(e);
     setCity(e);
     if (e === "Nida" || e === "Vilnius") {
       setShowText(!showText);
@@ -48,6 +47,7 @@ export default function Home({ initialData }) {
     const newData = await fetchWeather(newCity);
     setData(newData);
   };
+
 
   return (
     <>

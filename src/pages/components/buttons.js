@@ -3,7 +3,6 @@ import React from 'react'
 const Buttons = (props) => {
   const onHandleclickedCity = (e) => {
     const clickedCity = e.target.value
-    console.log('parodyk kaip atrodo city buttonose' + e.target.value)
     props.onClickedCity(clickedCity)
   }
 
